@@ -1,0 +1,52 @@
+{
+  "name": "express-test",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "callback.js",
+  "scripts": {
+    "start": "serverless offline start --port=3000 --host=0.0.0.0",
+    "debug": "SLS_DEBUG=*",
+    "migrate:up": "serverless invoke local --function up",
+    "migrate:up:test": "serverless invoke local --function up-test",
+    "migrate:down": "serverless invoke local --function down",
+    "migrate:down:test": "serverless invoke local --function down-test",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Clarity Hub, Inc",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "aws-serverless-express": "^3.0.2",
+    "babel-preset-es2017": "^6.24.1",
+    "body-parser": "^1.18.2",
+    "bugsnag": "^2.0.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-rate-limit": "^2.9.0",
+    "express-version-route": "^1.0.0",
+    "hbs": "^4.0.1",
+    "helmet": "^3.9.0",
+    "jsonwebtoken": "^8.1.0",
+    "lodash": "^4.17.4",
+    "node-clarity-hub": "^0.1.0",
+    "pg": "^7.4.0",
+    "pg-hstore": "^2.3.2",
+    "rate-limit-redis": "^1.1.0",
+    "redis": "^2.8.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "sequelize": "^4.23.0",
+    "sequelize-cli": "^3.1.0",
+    "service-claire": "git+ssh://git@gitlab.com/clairvoyance/node-service-claire.git"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.2",
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-claire": "git+ssh://git@gitlab.com/clairvoyance/eslint-config-claire.git",
+    "eslint-plugin-import": "^2.8.0",
+    "serverless-offline": "^3.16.0",
+    "serverless-pg-migrations": "^1.0.1",
+    "serverless-webpack": "^4.1.0"
+  }
+}

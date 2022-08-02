@@ -1,0 +1,46 @@
+service: integration-website-chat
+provider:
+  name: aws
+  runtime: nodejs6.10
+  environment:
+    DATABASE_URL:
+    TOKEN: 
+    CLIENT_ID: 
+    CLIENT_SECRET: 
+    INTEGRATION_UUID: 
+    INTEGRATION_URL: 
+    AUTH_URL:
+    APPS_URL:
+
+functions:
+  callback:
+    handler: callback.handler
+    events:
+      - http:
+          path: website-chat/oauth
+          method: GET
+      - http:
+          path: website-chat/callback
+          method: POST
+
+  up:
+    handler: migrations.up
+    timeout: 30
+  up-test:
+    handler: migrations.up
+    timeout: 30
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/clairvoyance_integration_website_chat_test
+
+  down:
+    handler: migrations.down
+    timeout: 30
+  down-test:
+    handler: migrations.down
+    timeout: 30
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/clairvoyance_integration_website_chat_test
+
+plugins:
+  - serverless-pg-migrations
+  - serverless-offline
